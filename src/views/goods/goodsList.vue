@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "goodsList",
+  name: "GoodsList",
   data() {
     return {
       tableData: [

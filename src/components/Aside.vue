@@ -1,6 +1,9 @@
 <template>
   <div id="Aside">
-    <el-menu default-active="/" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" @select="handleSelect">
+    <div class="logo">
+      <el-image :src="logo" fit="contain"></el-image>
+    </div>
+    <el-menu default-active="/" background-color="#0F132E" text-color="#FFFFFF" active-text-color="#FFD04B" @select="handleSelect">
       <el-menu-item index="/">
         <i class="iconfont icon-home"></i>
         <span slot="title">首页</span>
@@ -138,24 +141,42 @@
 </template>
 
 <script>
-export default {
-  name: "Aside",
-  methods: {
-    handleSelect(key) {
-      this.$router.push({
-        path: key,
-        params: { data: 'query' }
-      })
+  export default {
+    name: "Aside",
+    data() {
+      return {
+        logo: require('@/assets/logo.png'),
+      }
+    },
+    methods: {
+      handleSelect(key) {
+        this.$router.push({
+          path: key,
+          params: { data: 'query' }
+        })
+      }
     }
   }
-}
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   #Aside{
     height: 100%;
-    .el-menu{
-      height: 100%;
+    background-color: #0F132E;
+    .logo{
+      height: 120px;
+      padding: 10px 0;
+      background-color: #0F132E;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      /deep/ .el-image{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    /deep/ .el-menu{
+      height: calc(100% - 120px);
       border: none;
       .el-menu-item-group__title{
         padding: 0;
@@ -171,6 +192,9 @@ export default {
         span{
           user-select: none;
         }
+      }
+      .el-submenu__title{
+        user-select: none;
       }
     }
   }

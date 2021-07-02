@@ -34,6 +34,11 @@ export default {
     height: 100vh;
     display: flex;
   }
+  .el-header{
+    padding: 0;
+    border-bottom: 1px solid #EEEEEE;
+    box-shadow: 0px 0px 10px #EEEEEE;
+  }
   /* fade */
   .fade-enter-active,
   .fade-leave-active {

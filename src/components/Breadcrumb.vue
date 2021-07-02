@@ -9,38 +9,42 @@
 </template>
 
 <script>
-export default {
-  name: "Breadcrumb",
-  data() {
-    return {
-      breadList: [],
-    }
-  },
-  created(){
-    this.getBreadcrumb();
-  },
-  methods: {
-    getBreadcrumb() {
-      let matched = this.$route.matched.filter(item => item.meta && item.meta.title);
-      const first = matched[0];
-      if (!this.isHome(first)) {
-        // matched = [{ path: '/dashboard', meta: { title: 'Dashboard' }}].concat(matched)
-        matched = [{ path: '/home', meta: { title: '首页' }}].concat(matched);
+  export default {
+    name: "Breadcrumb",
+    data() {
+      return {
+        breadList: [],
       }
-      this.breadList = matched.filter(item => item.meta && item.meta.title);
     },
-    isHome(route) {
-      const name = route && route.name;
-      if (!name) {
-        return false
-      }
-      return name.trim().toLocaleLowerCase() === 'home'.toLocaleLowerCase()
-    },
-  },
-  watch: {
-    $route() {
+    created(){
       this.getBreadcrumb();
+    },
+    methods: {
+      getBreadcrumb() {
+        let matched = this.$route.matched.filter(item => item.meta && item.meta.title);
+        const first = matched[0];
+        if (!this.isHome(first)) {
+          matched = [{ path: '/home', meta: { title: '首页' }}].concat(matched);
+        }
+        this.breadList = matched.filter(item => item.meta && item.meta.title);
+      },
+      isHome(route) {
+        const name = route && route.name;
+        if (!name) {
+          return false
+        }
+        return name.trim().toLocaleLowerCase() === 'home'.toLocaleLowerCase()
+      },
+    },
+    watch: {
+      $route() {
+        this.getBreadcrumb();
+      }
     }
   }
-}
 </script>
+<style lang="less" scoped>
+  .no-redirect{
+    color: #FFFFFF !important;
+  }
+</style>

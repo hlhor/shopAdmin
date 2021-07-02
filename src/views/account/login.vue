@@ -23,55 +23,50 @@
 </template>
 
 <script>
-export default {
-  name: "login",
-  data() {
-    return {
-      formData: {
-        name: '',
-        password: '',
-      },
-      bannerOptions: {
-        pagination: {
-          el: ".swiper-pagination"
-        },
-      },
-      bannerData: [
-        {
-          url: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: '轮播一'
-        },
-        {
-          url: 'https://tenfei05.cfp.cn/creative/vcg/veer/800water/veer-302244659.jpg',
-          name: '轮播二'
-        },
-        {
-          url: require('@/assets/images/common/background.png'),
-          name: '轮播三'
-        }
-      ],
-    }
-  },
-  methods: {
-    onSubmit(){},
-    login(){
-      let res = {
-        name: '快速模板',
-        avatar: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2651491545,479364374&fm=26&gp=0.jpg'
-      };
-      this.$store.commit('saveUserInfo', res);
-      localStorage.setItem("userInfo", JSON.stringify(res));
-      this.$router.push({path: '/'});
+  export default {
+    name: "Login",
+    data() {
+      return {
+        formData: {
+          name: '',
+          password: '',
+        }, // 提交数据
+        bannerOptions: {
+          pagination: {
+            el: ".swiper-pagination"
+          }
+        }, // 轮播设置
+        bannerData: [
+          {
+            url: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
+            name: '轮播一'
+          },
+          {
+            url: 'https://tenfei05.cfp.cn/creative/vcg/veer/800water/veer-302244659.jpg',
+            name: '轮播二'
+          },
+          {
+            url: require('@/assets/images/common/background.png'),
+            name: '轮播三'
+          }
+        ], // 模拟轮播数据
+      }
     },
-  },
-}
+    methods: {
+      onSubmit(){},
+      login(){
+        let res = {
+          name: '快速模板',
+          avatar: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2651491545,479364374&fm=26&gp=0.jpg'
+        };
+        this.$store.commit('saveUserInfo', res);
+        localStorage.setItem("userInfo", JSON.stringify(res));
+        this.$router.push({path: '/'});
+      },
+    },
+  }
 </script>
 
-<style lang="less">
-  .el-input__inner:focus{
-    border-color: #C0C4CC;
-  }
-</style>
 <style lang="less" scoped>
   .loginPage{
     height: 100%;

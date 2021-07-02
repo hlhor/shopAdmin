@@ -1,16 +1,18 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import store from '@/store/index'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import store from '@/store/index';
 
 Vue.use(VueRouter)
 
+/* 解决相同路径跳转报错 */
 const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
-// Layout
-import Layout from '@/layout'
+
+// 引入Layout
+import Layout from '@/layout';
 
 const routes = [
   {
@@ -37,7 +39,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'home',
+        name: 'Home',
         component: () => import('@/views/home/index'),
         meta: {
           title: '首页',
@@ -54,7 +56,7 @@ const routes = [
     children: [
       {
         path: '/goods/goodsList',
-        name: 'goodsList',
+        name: 'GoodsList',
         component: () => import('@/views/goods/goodsList'),
         meta: {
           title: '商品列表',
@@ -63,7 +65,7 @@ const routes = [
       },
       {
         path: '/goods/addGoods',
-        name: 'addGoods',
+        name: 'AddGoods',
         component: () => import('@/views/goods/addGoods'),
         meta: {
           title: '新增商品',
@@ -80,7 +82,7 @@ const routes = [
     children: [
       {
         path: '/shop/shopList',
-        name: 'shopList',
+        name: 'ShopList',
         component: () => import('@/views/shop/shopList'),
         meta: {
           title: '店铺列表',
@@ -89,7 +91,7 @@ const routes = [
       },
       {
         path: '/shop/addShop',
-        name: 'addShop',
+        name: 'AddShop',
         component: () => import('@/views/shop/addShop'),
         meta: {
           title: '店铺新增',
@@ -106,7 +108,7 @@ const routes = [
     children: [
       {
         path: '/user/userList',
-        name: 'userList',
+        name: 'UserList',
         component: () => import('@/views/user/userList'),
         meta: {
           title: '用户列表',
@@ -115,7 +117,7 @@ const routes = [
       },
       {
         path: '/user/userSource',
-        name: 'userSource',
+        name: 'UserSource',
         component: () => import('@/views/user/userSource'),
         meta: {
           title: '来源分析',
@@ -132,7 +134,7 @@ const routes = [
     children: [
       {
         path: '/ranking/index',
-        name: 'ranking',
+        name: 'Ranking',
         component: () => import('@/views/ranking/index'),
         meta: {
           title: '销量排行',
@@ -149,7 +151,7 @@ const routes = [
     children: [
       {
         path: '/achievement/achievementList',
-        name: 'achievementList',
+        name: 'AchievementList',
         component: () => import('@/views/achievement/achievementList'),
         meta: {
           title: '业绩列表',
@@ -158,7 +160,7 @@ const routes = [
       },
       {
         path: '/achievement/distribution',
-        name: 'distribution',
+        name: 'Distribution',
         component: () => import('@/views/achievement/distribution'),
         meta: {
           title: '业绩分配',
@@ -175,7 +177,7 @@ const routes = [
     children: [
       {
         path: '/delivery/deliveryList',
-        name: 'deliveryList',
+        name: 'DeliveryList',
         component: () => import('@/views/delivery/deliveryList'),
         meta: {
           title: '配送列表',
@@ -192,7 +194,7 @@ const routes = [
     children: [
       {
         path: '/order/orderList',
-        name: 'orderList',
+        name: 'OrderList',
         component: () => import('@/views/order/orderList'),
         meta: {
           title: '订单列表',
@@ -201,7 +203,7 @@ const routes = [
       },
       {
         path: '/order/addOrder',
-        name: 'addOrder',
+        name: 'AddOrder',
         component: () => import('@/views/order/addOrder'),
         meta: {
           title: '新增订单',
@@ -218,7 +220,7 @@ const routes = [
     children: [
       {
         path: '/activity/activityList',
-        name: 'activityList',
+        name: 'ActivityList',
         component: () => import('@/views/activity/activityList'),
         meta: {
           title: '活动列表',
@@ -227,7 +229,7 @@ const routes = [
       },
       {
         path: '/activity/addActivity',
-        name: 'addActivity',
+        name: 'AddActivity',
         component: () => import('@/views/activity/addActivity'),
         meta: {
           title: '新增活动',
@@ -244,6 +246,7 @@ const routes = [
   }
 ]
 
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -251,7 +254,7 @@ const router = new VueRouter({
 })
 
 // 路由前置导航守卫
-router.beforeEach((to,from,next) => {
+router.beforeEach((to, from, next) => {
   // 根据路由元信息设置文档标题
   window.document.title = to.meta.title || '商城后台管理系统';
   // 对路由进行登录验证

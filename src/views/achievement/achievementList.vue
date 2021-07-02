@@ -6,7 +6,7 @@
 
 <script>
 export default {
-name: "achievementList"
+name: "AchievementList"
 }
 </script>
 

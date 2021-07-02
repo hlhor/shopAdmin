@@ -6,7 +6,7 @@
 
 <script>
 export default {
-name: "source"
+name: "Source"
 }
 </script>
 

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-name: "addActivity"
+name: "AddActivity"
 }
 </script>
 
