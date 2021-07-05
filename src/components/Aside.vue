@@ -3,6 +3,7 @@
     <div class="logo">
       <el-image :src="logo" fit="contain"></el-image>
     </div>
+
     <el-menu default-active="/" background-color="#0F132E" text-color="#FFFFFF" active-text-color="#FFD04B" @select="handleSelect">
       <el-menu-item index="/">
         <i class="iconfont icon-home"></i>
@@ -137,6 +138,7 @@
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
+
   </div>
 </template>
 
@@ -147,6 +149,12 @@
       return {
         logo: require('@/assets/logo.png'),
       }
+    },
+    computed: {
+      routes() {
+        console.log('路由==',this.$router.options.routes)
+        return this.$router.options.routes
+      },
     },
     methods: {
       handleSelect(key) {
@@ -178,6 +186,7 @@
     /deep/ .el-menu{
       height: calc(100% - 120px);
       border: none;
+      user-select: none;
       .el-menu-item-group__title{
         padding: 0;
       }
@@ -187,14 +196,6 @@
         font-size: 18px;
         text-align: center;
         display: inline-block;
-      }
-      .el-menu-item{
-        span{
-          user-select: none;
-        }
-      }
-      .el-submenu__title{
-        user-select: none;
       }
     }
   }

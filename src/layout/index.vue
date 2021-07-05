@@ -36,6 +36,7 @@ export default {
   }
   .el-header{
     padding: 0;
+    // box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
     border-bottom: 1px solid #EEEEEE;
     box-shadow: 0px 0px 10px #EEEEEE;
   }
