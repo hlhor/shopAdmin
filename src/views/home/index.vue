@@ -1,10 +1,11 @@
 <template>
   <div class="page-container homePage">
-    <h1>HomePage</h1>
-
-    <p>测试</p>
-
-    <h3>新添加一点文本</h3>
+    <section class="contentTop">
+      <div class="contentLeft"></div>
+      <div class="contentRight"></div>
+    </section>
+    <section class="contentCenter"></section>
+    <section class="contentBottom"></section>
   </div>
 </template>
 

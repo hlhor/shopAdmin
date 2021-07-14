@@ -19,13 +19,17 @@ const routes = [
     path: '/login',
     component: () => import('@/views/account/login'),
     hidden: true,
-    meta: {title: '登录'}
+    meta: {
+      title: '登录'
+    }
   },
   {
     path: '/register',
     component: () => import('@/views/account/register'),
     hidden: true,
-    meta: {title: '注册'}
+    meta: {
+      title: '注册'
+    }
   },
   {
     path: '/404',
@@ -35,27 +39,36 @@ const routes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/',
+    redirect: '/index',
+    meta: { 
+      title: '首页',
+      icon: 'icon-home',
+    },
     children: [
       {
-        path: '',
+        path: 'index',
         name: 'Home',
         component: () => import('@/views/home/index'),
         meta: {
           title: '首页',
-          requireAuth: true
-        }
+          requireAuth: true,
+        },
       }
     ]
   },
+
   //  商品管理
   {
     path: '/goods',
     component: Layout,
     redirect: '/goods/goodsList',
+    meta: { 
+      title: '商品管理',
+      icon: 'icon-packaging'
+    },
     children: [
       {
-        path: '/goods/goodsList',
+        path: 'goodsList',
         name: 'GoodsList',
         component: () => import('@/views/goods/goodsList'),
         meta: {
@@ -64,7 +77,7 @@ const routes = [
         }
       },
       {
-        path: '/goods/addGoods',
+        path: 'addGoods',
         name: 'AddGoods',
         component: () => import('@/views/goods/addGoods'),
         meta: {
@@ -74,126 +87,18 @@ const routes = [
       },
     ]
   },
-  //  店铺管理
-  {
-    path: '/shop',
-    component: Layout,
-    redirect: '/shop/shopList',
-    children: [
-      {
-        path: '/shop/shopList',
-        name: 'ShopList',
-        component: () => import('@/views/shop/shopList'),
-        meta: {
-          title: '店铺列表',
-          requireAuth: true
-        }
-      },
-      {
-        path: '/shop/addShop',
-        name: 'AddShop',
-        component: () => import('@/views/shop/addShop'),
-        meta: {
-          title: '店铺新增',
-          requireAuth: true
-        }
-      },
-    ]
-  },
-  //  用户管理
-  {
-    path: '/user',
-    component: Layout,
-    redirect: '/user/userList',
-    children: [
-      {
-        path: '/user/userList',
-        name: 'UserList',
-        component: () => import('@/views/user/userList'),
-        meta: {
-          title: '用户列表',
-          requireAuth: true
-        }
-      },
-      {
-        path: '/user/userSource',
-        name: 'UserSource',
-        component: () => import('@/views/user/userSource'),
-        meta: {
-          title: '来源分析',
-          requireAuth: true
-        }
-      },
-    ]
-  },
-  //  销量排行
-  {
-    path: '/ranking',
-    component: Layout,
-    redirect: '/ranking/index',
-    children: [
-      {
-        path: '/ranking/index',
-        name: 'Ranking',
-        component: () => import('@/views/ranking/index'),
-        meta: {
-          title: '销量排行',
-          requireAuth: true
-        }
-      }
-    ]
-  },
-  //  业绩管理
-  {
-    path: '/achievement',
-    component: Layout,
-    redirect: '/achievement/achievementList',
-    children: [
-      {
-        path: '/achievement/achievementList',
-        name: 'AchievementList',
-        component: () => import('@/views/achievement/achievementList'),
-        meta: {
-          title: '业绩列表',
-          requireAuth: true
-        }
-      },
-      {
-        path: '/achievement/distribution',
-        name: 'Distribution',
-        component: () => import('@/views/achievement/distribution'),
-        meta: {
-          title: '业绩分配',
-          requireAuth: true
-        }
-      },
-    ]
-  },
-  //  配送管理
-  {
-    path: '/delivery',
-    component: Layout,
-    redirect: '/delivery/deliveryList',
-    children: [
-      {
-        path: '/delivery/deliveryList',
-        name: 'DeliveryList',
-        component: () => import('@/views/delivery/deliveryList'),
-        meta: {
-          title: '配送列表',
-          requireAuth: true
-        }
-      }
-    ]
-  },
   //  订单管理
   {
     path: '/order',
     component: Layout,
     redirect: '/order/orderList',
+    meta: { 
+      title: '订单管理',
+      icon: 'icon-order'
+    },
     children: [
       {
-        path: '/order/orderList',
+        path: 'orderList',
         name: 'OrderList',
         component: () => import('@/views/order/orderList'),
         meta: {
@@ -202,7 +107,7 @@ const routes = [
         }
       },
       {
-        path: '/order/addOrder',
+        path: 'addOrder',
         name: 'AddOrder',
         component: () => import('@/views/order/addOrder'),
         meta: {
@@ -212,30 +117,118 @@ const routes = [
       },
     ]
   },
-  //  活动管理
+  //  内容管理
   {
-    path: '/activity',
+    path: '/content',
     component: Layout,
-    redirect: '/activity/activityList',
+    redirect: '/content/banner',
+    meta: { 
+      title: '内容管理',
+      icon: 'icon-feeds'
+    },
     children: [
       {
-        path: '/activity/activityList',
-        name: 'ActivityList',
-        component: () => import('@/views/activity/activityList'),
+        path: 'banner',
+        name: 'Banner',
+        component: () => import('@/views/content/banner'),
+        meta: { 
+          title: '轮播设置',
+          requireAuth: true
+        },
+      }
+    ]
+  },
+  //  店铺管理
+  {
+    path: '/shop',
+    component: Layout,
+    redirect: '/shop/shopList',
+    meta: {
+      title: '店铺管理',
+      icon: 'icon-store'
+    },
+    children: [
+      {
+        path: 'shopList',
+        name: 'ShopList',
+        component: () => import('@/views/shop/shopList'),
         meta: {
-          title: '活动列表',
+          title: '店铺列表',
           requireAuth: true
         }
       },
       {
-        path: '/activity/addActivity',
-        name: 'AddActivity',
-        component: () => import('@/views/activity/addActivity'),
+        path: 'addShop',
+        name: 'AddShop',
+        component: () => import('@/views/shop/addShop'),
         meta: {
-          title: '新增活动',
+          title: '店铺新增',
           requireAuth: true
         }
       },
+    ]
+  },
+  //  权限管理
+  {
+    path: '/power',
+    component: Layout,
+    redirect: '/power/powerList',
+    meta: { 
+      title: '权限管理',
+      icon: 'icon-security'
+    },
+    children: [
+      {
+        path: '/power/powerList',
+        name: 'PowerList',
+        component: () => import('@/views/power/powerList'),
+        meta: {
+          title: '权限列表',
+          requireAuth: true
+        }
+      },
+    ]
+  },
+  //  会员管理
+  {
+    path: '/member',
+    component: Layout,
+    redirect: '/member/memberList',
+    meta: { 
+      title: '会员管理',
+      icon: 'icon-vip'
+    },
+    children: [
+      {
+        path: '/member/memberList',
+        name: 'MemberList',
+        component: () => import('@/views/member/memberList'),
+        meta: {
+          title: '会员列表',
+          requireAuth: true
+        }
+      },
+    ]
+  },
+  //  系统管理
+  {
+    path: '/setting',
+    component: Layout,
+    redirect: '/setting/index',
+    meta: { 
+      title: '系统管理',
+      icon: 'icon-set'
+    },
+    children: [
+      {
+        path: 'index',
+        name: 'Setting',
+        component: () => import('@/views/setting/index'),
+        meta: {
+          title: '系统管理',
+          requireAuth: true
+        },
+      }
     ]
   },
   //  其他
