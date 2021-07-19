@@ -9,7 +9,6 @@ import "./assets/iconfont/iconfont.css";
 import 'normalize.css/normalize.css';
 import '@/style/index.less';
 
-
 // 引入element-Ui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -28,10 +27,16 @@ Vue.component('Header', Header);
 Vue.component('Aside', Aside);
 Vue.component('Main', Main);
 
-
+/*
+  描述：打印
+  title: console标题
+  val: console值
+*/
+Vue.prototype.log = function(val){
+  return console.log(`${val.title != ''?val.title:'打印结果'}=====`, val.value)
+};
 
 Vue.config.productionTip = false
-
 
 new Vue({
   router,

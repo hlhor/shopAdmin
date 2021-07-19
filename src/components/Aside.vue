@@ -4,7 +4,7 @@
       <el-image :src="logo" fit="contain"></el-image>
     </div>
 
-    <el-menu :router="true" default-active="/" background-color="#0F132E" text-color="#FFFFFF" active-text-color="#FFD04B">
+    <el-menu :router="true" default-active="/" background-color="#0F132E" text-color="#FFFFFF" active-text-color="#FFD04B" @select="select">
       <MenuItem v-for="(item, index) in routes" :key="index" :item="item" />
     </el-menu>
   </div>
@@ -24,12 +24,14 @@
     },
     computed: {
       routes(){
-        console.log('路由==',this.$router.options.routes)
         return this.$router.options.routes
       },
     },
     methods: {
-      
+      select(e){
+        // console.log(e, 'asdasdasd')
+        this.log(e)
+      },
     }
   }
 </script>
@@ -42,9 +44,9 @@
       height: 120px;
       padding: 10px 0;
       background-color: #0F132E;
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      // position: sticky;
+      // top: 0;
+      // z-index: 50;
       /deep/ .el-image{
         width: 100%;
         height: 100%;

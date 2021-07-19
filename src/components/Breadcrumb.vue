@@ -24,16 +24,17 @@
         let matched = this.$route.matched.filter(item => item.meta && item.meta.title);
         const first = matched[0];
         if (!this.isHome(first)) {
-          matched = [{ path: '/home', meta: { title: '首页' }}].concat(matched);
+          matched = [{ path: '/index', meta: { title: '首页' }}].concat(matched);
         }
         this.breadList = matched.filter(item => item.meta && item.meta.title);
+        this.log({title: '', value: this.breadList})
       },
       isHome(route) {
-        const name = route && route.name;
-        if (!name) {
+        const path = route.path;
+        if (!path) {
           return false
         }
-        return name.trim().toLocaleLowerCase() === 'home'.toLocaleLowerCase()
+        return path === ''
       },
     },
     watch: {

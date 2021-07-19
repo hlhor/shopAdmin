@@ -10,7 +10,6 @@ VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
-
 // 引入Layout
 import Layout from '@/layout';
 
@@ -39,14 +38,14 @@ const routes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/index',
+    redirect: '/home',
     meta: { 
       title: '首页',
       icon: 'icon-home',
     },
     children: [
       {
-        path: 'index',
+        path: '/home',
         name: 'Home',
         component: () => import('@/views/home/index'),
         meta: {
@@ -56,7 +55,6 @@ const routes = [
       }
     ]
   },
-
   //  商品管理
   {
     path: '/goods',
@@ -68,7 +66,7 @@ const routes = [
     },
     children: [
       {
-        path: 'goodsList',
+        path: '/goods/goodsList',
         name: 'GoodsList',
         component: () => import('@/views/goods/goodsList'),
         meta: {
@@ -77,7 +75,7 @@ const routes = [
         }
       },
       {
-        path: 'addGoods',
+        path: '/goods/addGoods',
         name: 'AddGoods',
         component: () => import('@/views/goods/addGoods'),
         meta: {
@@ -98,7 +96,7 @@ const routes = [
     },
     children: [
       {
-        path: 'orderList',
+        path: '/order/orderList',
         name: 'OrderList',
         component: () => import('@/views/order/orderList'),
         meta: {
@@ -107,7 +105,7 @@ const routes = [
         }
       },
       {
-        path: 'addOrder',
+        path: '/order/addOrder',
         name: 'AddOrder',
         component: () => import('@/views/order/addOrder'),
         meta: {
@@ -128,7 +126,7 @@ const routes = [
     },
     children: [
       {
-        path: 'banner',
+        path: '/content/banner',
         name: 'Banner',
         component: () => import('@/views/content/banner'),
         meta: { 
@@ -149,7 +147,7 @@ const routes = [
     },
     children: [
       {
-        path: 'shopList',
+        path: '/shop/shopList',
         name: 'ShopList',
         component: () => import('@/views/shop/shopList'),
         meta: {
@@ -158,7 +156,7 @@ const routes = [
         }
       },
       {
-        path: 'addShop',
+        path: '/shop/addShop',
         name: 'AddShop',
         component: () => import('@/views/shop/addShop'),
         meta: {
@@ -208,6 +206,15 @@ const routes = [
           requireAuth: true
         }
       },
+      {
+        path: '/member/memberActivity',
+        name: 'MemberActivity',
+        component: () => import('@/views/member/memberActivity'),
+        meta: {
+          title: '会员活动',
+          requireAuth: true
+        }
+      },
     ]
   },
   //  系统管理
@@ -221,7 +228,7 @@ const routes = [
     },
     children: [
       {
-        path: 'index',
+        path: '/setting/index',
         name: 'Setting',
         component: () => import('@/views/setting/index'),
         meta: {
@@ -238,7 +245,6 @@ const routes = [
     hidden: true
   }
 ]
-
 
 const router = new VueRouter({
   mode: 'history',
