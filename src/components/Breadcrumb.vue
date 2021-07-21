@@ -1,11 +1,16 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="/">
-    <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-for="item in breadList" :key="item.path">
-        <span class="no-redirect">{{ item.meta.title }}</span>
-      </el-breadcrumb-item>
-    </transition-group>
-  </el-breadcrumb>
+  <div class="Breadcrumb">
+    <div class="back">
+      <i class="iconfont icon-home no-redirect"></i>
+    </div>
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <transition-group name="breadcrumb">
+        <el-breadcrumb-item v-for="item in breadList" :key="item.path">
+          <span class="no-redirect">{{ item.meta.title }}</span>
+        </el-breadcrumb-item>
+      </transition-group>
+    </el-breadcrumb>
+  </div>
 </template>
 
 <script>
@@ -22,19 +27,8 @@
     methods: {
       getBreadcrumb() {
         let matched = this.$route.matched.filter(item => item.meta && item.meta.title);
-        const first = matched[0];
-        if (!this.isHome(first)) {
-          matched = [{ path: '/index', meta: { title: '首页' }}].concat(matched);
-        }
         this.breadList = matched.filter(item => item.meta && item.meta.title);
-        this.log({title: '', value: this.breadList})
-      },
-      isHome(route) {
-        const path = route.path;
-        if (!path) {
-          return false
-        }
-        return path === ''
+        this.log({value: this.breadList})
       },
     },
     watch: {
@@ -45,6 +39,23 @@
   }
 </script>
 <style lang="less" scoped>
+  .Breadcrumb{
+    display: flex;
+    align-items: center;
+    .back{
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+      background-color: lightcoral;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      .iconfont{
+        margin: auto;
+        font-size: 20px;
+      }
+    }
+  }
   .no-redirect{
     color: #FFFFFF !important;
   }

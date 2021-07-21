@@ -29,8 +29,8 @@
     },
     methods: {
       select(e){
-        // console.log(e, 'asdasdasd')
-        this.log(e)
+        this.log({value: e})
+        localStorage.setItem('token', '测试token')
       },
     }
   }
@@ -44,9 +44,6 @@
       height: 120px;
       padding: 10px 0;
       background-color: #0F132E;
-      // position: sticky;
-      // top: 0;
-      // z-index: 50;
       /deep/ .el-image{
         width: 100%;
         height: 100%;
@@ -56,6 +53,17 @@
       height: calc(100% - 120px);
       border: none;
       user-select: none;
+      .el-menu-item.is-active{
+        &::before{
+          width: 10px;
+          height: 100%;
+          background-color: #fff;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        background-color: #2A2D60 !important;
+      }
       .el-menu-item-group__title{
         padding: 0;
       }

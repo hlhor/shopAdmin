@@ -29,11 +29,13 @@ Vue.component('Main', Main);
 
 /*
   描述：打印
-  title: console标题
-  val: console值
+  {
+    title: console标题
+    val: console值
+  }
 */
 Vue.prototype.log = function(val){
-  return console.log(`${val.title != ''?val.title:'打印结果'}=====`, val.value)
+  return console.log(`${val.title ? val.title : '打印结果'}=====`, val.value)
 };
 
 Vue.config.productionTip = false
