@@ -4,6 +4,14 @@
 
     <div class="flex-center">
       <el-input placeholder="请输入内容" v-model="searchValue" clearable prefix-icon="el-icon-search"></el-input>
+      <div class="handle flex-flex-center">
+        <!-- <el-badge value="2" class="item">
+          <i class="iconfont icon-xiaoxizhongxin"></i>
+        </el-badge>
+        <el-badge :value="3" class="item">
+          <el-button size="small">回复</el-button>
+        </el-badge> -->
+      </div>
       <el-dropdown>
         <span class="el-dropdown-link">
           <div class="flex-flex-center">
@@ -59,6 +67,17 @@
     .el-dropdown{
       margin-left: 10px;
       flex: 0 0 auto;
+    }
+    .handle{
+      .item{
+        margin: 0 10px;
+        .iconfont{
+          width: 24px;
+          height: 24px;
+          font-size: 28px;
+          color: #FFFFFF;
+        }
+      }
     }
   }
   

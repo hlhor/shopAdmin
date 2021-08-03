@@ -1,5 +1,5 @@
 <template>
-  <div class="Breadcrumb">
+  <div id="Breadcrumb">
     <div class="back">
       <i class="iconfont icon-home no-redirect"></i>
     </div>
@@ -39,7 +39,7 @@
   }
 </script>
 <style lang="less" scoped>
-  .Breadcrumb{
+  #Breadcrumb{
     display: flex;
     align-items: center;
     .back{

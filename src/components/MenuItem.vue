@@ -1,6 +1,5 @@
 <template>
   <div v-if="!item.hidden">
-
     <el-menu-item v-if="item.children == null || item.children.length <= 1" :index="item.path">
       <i :class="'iconfont ' + item.meta.icon"></i>
       <span>{{item.meta.title}}</span>

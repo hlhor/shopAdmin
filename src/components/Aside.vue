@@ -55,12 +55,14 @@
       user-select: none;
       .el-menu-item.is-active{
         &::before{
-          width: 10px;
+          content: '';
+          width: 5px;
           height: 100%;
-          background-color: #fff;
+          background-color: #7678ED;
           position: absolute;
           left: 0;
           top: 0;
+          z-index: 5;
         }
         background-color: #2A2D60 !important;
       }
