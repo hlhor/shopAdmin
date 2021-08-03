@@ -5,52 +5,26 @@
   text-decoration: none;
   list-style: none;
   outline: none;
+  line-height: 1;
 }
-
-
-// 全局样式
-@Bgc-white              : #FFFFFF;                    // 背景色——白色
-@Bgc-black              : #000000;                    // 背景色——黑色
-@Bgc-mask               : rgba(0, 0, 0, .5);          // 背景色——遮罩
-@Bgc-success            : #67C23A;                    // 背景色——成功
-@Bgc-warning            : #E6A23C;                    // 背景色——警告
-@Bgc-error              : #F56C6C;                    // 背景色——错误
-@Bgc-info               : #909399;                    // 背景色——提醒
-
-@text-color             : #333333;                    // 字体颜色——白色
-@text-success           : #67C23A;                    // 字体颜色——成功
-@text-warning           : #E6A23C;                    // 字体颜色——警告
-@text-error             : #F56C6C;                    // 字体颜色——失败
-@text-info              : #909399;                    // 字体颜色——提醒
-
-@Font-12px              : 12px;                         // 字体大小——12px
-@Font-14px              : 14px;                         // 字体大小——14px
-@Font-16px              : 16px;                         // 字体大小——16px
-@Font-18px              : 18px;                         // 字体大小——18px
-@Font-20px              : 20px;                         // 字体大小——20px
-
-@Page-bg                : #F8F8F8;                    // 页面色——白色
-@Border-solid           : 1px solid #5F69B2;          // 边框——solid
-@Border-dashed          : 1px dashed #5F69B2;         // 边框——dashed
-@Border-radius          : 15px;                         // 边框圆角——15px
-@Border-round           : 50%;                          // 边框圆角——50%
-
-
-
 
 // Flex布局
 .flex{ display: flex; }
 .none{ display: none; }
 .block{ display: block; }
 .inline-block{ display: inline-block; }
+.inline-flex{ display: inline-flex; }
 .flex-col{ display: flex; flex-direction: column; }
-.flex-wrap{ flex-wrap: wrap};
-.flex-center{ display: flex; justify-content: center; align-items: center; }
-.flex-between{ display: flex; justify-content: space-between; align-items: center; }
-.flex-around{ display: flex; justify-content: space-around; align-items: center; }
-.flex-end-center{ display: flex; justify-content: flex-end; align-items: center; }
-.flex-flex-center{ display: flex; align-items: center; }
+.flex-wrap{ display: flex; flex-wrap: wrap};
 
+.flex-center-center{ display: flex; justify-content: center; align-items: center; }
+.flex-between-center{ display: flex; justify-content: space-between; align-items: center; }
+.flex-around-center{ display: flex; justify-content: space-around; align-items: center; }
+.flex-end-center{ display: flex; justify-content: flex-end; align-items: center; }
+
+.flex-flex-center{ display: flex; align-items: center; }
+.flex-flex-start{ display: flex; align-items: flex-start; }
+.flex-flex-end{ display: flex; align-items: flex-end; }
 
 // 通用样式
 .page-container{ min-height: 100%; }
@@ -62,3 +36,31 @@
 .iconLeft{ margin-right: 5px; }
 .iconRight{ margin-left: 5px; }
 img{ width: 100%; height: 100%; }
+
+// 全局样式
+@Bgc-default            : #F5F5F5;                    // 背景色--默认
+@Bgc-white              : #FFFFFF;                    // 背景色——白色
+@Bgc-black              : #000000;                    // 背景色——黑色
+@Bgc-mask               : rgba(0, 0, 0, .5);          // 背景色——遮罩
+@Bgc-success            : #67C23A;                    // 背景色——成功
+@Bgc-warning            : #E6A23C;                    // 背景色——警告
+@Bgc-error              : #F56C6C;                    // 背景色——错误
+@Bgc-info               : #909399;                    // 背景色——提醒
+
+@text-success           : #67C23A;                    // 字体颜色——成功
+@text-warning           : #E6A23C;                    // 字体颜色——警告
+@text-error             : #F56C6C;                    // 字体颜色——失败
+@text-info              : #909399;                    // 字体颜色——提醒
+@text-title             : #333333;                    // 字体颜色——标题
+
+@Font-12px              : 12px;                         // 字体大小——12px
+@Font-14px              : 14px;                         // 字体大小——14px
+@Font-16px              : 16px;                         // 字体大小——16px
+@Font-18px              : 18px;                         // 字体大小——18px
+@Font-20px              : 20px;                         // 字体大小——20px
+
+@Border-radius-15       : 15px;                         // 边框圆角——15px
+@Border-radius-10       : 10px;                         // 边框圆角——10px
+@Border-radius-5        : 5px;                          // 边框圆角——5px
+@Border-radius-2        : 2px;                          // 边框圆角——2px
+@Border-round           : 50%;                          // 边框圆角——50%

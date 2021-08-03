@@ -1,15 +1,72 @@
 .homePage{
   .contentTop{
-    height: 400px;
-    background-color: lightcoral;
+    height: 547px;
+    .contentLeft{
+      width: 0;
+      height: 100%;
+      background-color: @Bgc-white;
+      border-radius: @Border-radius-5;
+      flex: 1 0 auto;
+    }
+    .contentRight{
+      width: 418px;
+      height: 100%;
+      margin-left: 20px;
+      background-color: @Bgc-white;
+      border-radius: @Border-radius-5;
+      flex: 0 0 auto;
+    }
   }
   .contentCenter{
-    height: 200px;
-    margin: 10px 0;
-    background-color: lightslategrey;
+    margin: 20px 0;
+    padding: 20px 15px 30px;
+    background-color: @Bgc-white;
+    border-radius: @Border-radius-5;
+    .title{
+      padding: 20px 0 30px;
+      font-size: 18px;
+      color: @text-title;
+    }
+    .work{
+      justify-content: space-between;
+      .item{
+        width: 427px;
+        height: 46px;
+        border-bottom: 1px solid #C7C7C7;
+        font-size: 16px;
+        .subTitle{
+          color: #333333;
+        }
+        .value{
+          color: #7678ED;
+        }
+      }
+    }
   }
   .contentBottom{
-    height: 200px;
-    background-color: lightseagreen;
+    height: 173px;
+    .goodsView, .memberView{
+      width: 840px;
+      height: 100%;
+      background-color: @Bgc-white;
+      border-radius: @Border-radius-5;
+      .title{
+        padding: 20px 0 45px 20px;
+        font-size: 18px;
+        color: @text-title;
+      }
+      .value{
+        font-size: 20px;
+        color: #7678ED;
+      }
+      .subTitle{
+        padding-top: 20px;
+        font-size: 16px;
+        color: @text-title;
+      }
+    }
+    .memberView{
+      margin-left: 20px;
+    }
   }
 }

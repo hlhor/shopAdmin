@@ -1,7 +1,7 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper flex">
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="180px">
         <Aside />
       </el-aside>
       <el-container>
@@ -32,7 +32,6 @@ export default {
 <style lang="less" scoped>
   .app-wrapper{
     height: 100vh;
-    display: flex;
   }
   .el-header{
     padding: 0;

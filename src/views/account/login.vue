@@ -1,5 +1,5 @@
 <template>
-  <div class="loginPage flex-between">
+  <div class="loginPage flex-between-center">
     <main class="loginBox flex">
       <section class="swiperBox">
         <swiper class="swiper" ref="mySwiper" :options="bannerOptions">

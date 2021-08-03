@@ -1,6 +1,6 @@
 <template>
-  <div id="Breadcrumb">
-    <div class="back">
+  <div id="Breadcrumb" class="flex-flex-center">
+    <div class="back flex">
       <i class="iconfont icon-home no-redirect"></i>
     </div>
     <el-breadcrumb separator-class="el-icon-arrow-right">
@@ -40,8 +40,6 @@
 </script>
 <style lang="less" scoped>
   #Breadcrumb{
-    display: flex;
-    align-items: center;
     .back{
       width: 32px;
       height: 32px;
@@ -49,7 +47,6 @@
       background-color: lightcoral;
       border-radius: 50%;
       cursor: pointer;
-      display: flex;
       .iconfont{
         margin: auto;
         font-size: 20px;

@@ -1,16 +1,13 @@
 <template>
-  <div id="Header" class="flex-between">
+  <div id="Header" class="flex-between-center">
     <Breadcrumb />
 
-    <div class="flex-center">
+    <div class="flex-center-center">
       <el-input placeholder="请输入内容" v-model="searchValue" clearable prefix-icon="el-icon-search"></el-input>
       <div class="handle flex-flex-center">
-        <!-- <el-badge value="2" class="item">
+        <el-badge value="2" class="item">
           <i class="iconfont icon-xiaoxizhongxin"></i>
         </el-badge>
-        <el-badge :value="3" class="item">
-          <el-button size="small">回复</el-button>
-        </el-badge> -->
       </div>
       <el-dropdown>
         <span class="el-dropdown-link">
@@ -71,6 +68,7 @@
     .handle{
       .item{
         margin: 0 10px;
+        cursor: pointer;
         .iconfont{
           width: 24px;
           height: 24px;
