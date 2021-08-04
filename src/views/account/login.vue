@@ -12,7 +12,7 @@
       <section class="login">
         <h1>电商管理后台系统</h1>
         <el-input class="accountInput" placeholder="请输入账号" prefix-icon="el-icon-user" v-model="formData.name" clearable></el-input>
-        <el-input class="accountInput" placeholder="请输入密码" prefix-icon="el-icon-lock" v-model="formData.password" clearable show-password></el-input>
+        <el-input class="accountInput" placeholder="请输入密码" prefix-icon="el-icon-lock" v-model="formData.password" show-password clearable></el-input>
         <section class="flex-end-center">
           <button @click="login">登录</button>
           <button>注册</button>

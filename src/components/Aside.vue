@@ -4,7 +4,7 @@
       <el-image :src="logo" fit="contain"></el-image>
     </div>
 
-    <el-menu :router="true" default-active="/" background-color="#0F132E" text-color="#FFFFFF" active-text-color="#FFD04B" @select="select">
+    <el-menu :router="true" default-active="/" background-color="#0F132E" text-color="#FFFFFF" active-text-color="#FFFFFF" @select="select">
       <MenuItem v-for="(item, index) in routes" :key="index" :item="item" />
     </el-menu>
   </div>

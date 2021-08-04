@@ -5,11 +5,11 @@
     <div class="flex-center-center">
       <el-input placeholder="请输入内容" v-model="searchValue" clearable prefix-icon="el-icon-search"></el-input>
       <div class="handle flex-flex-center">
-        <el-badge value="2" class="item">
+        <el-badge value="2" class="item cursor">
           <i class="iconfont icon-xiaoxizhongxin"></i>
         </el-badge>
       </div>
-      <el-dropdown>
+      <el-dropdown @command="handleCommand">
         <span class="el-dropdown-link">
           <div class="flex-flex-center">
             <span class="userName">{{$store.state.userInfo == null ? '未登录' : $store.state.userInfo.name}}</span>
@@ -17,11 +17,10 @@
           </div>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item><p @click="logout">退出登录</p></el-dropdown-item>
-          <el-dropdown-item>狮子头</el-dropdown-item>
-          <el-dropdown-item>螺蛳粉</el-dropdown-item>
-          <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-          <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+          <el-dropdown-item>选择1</el-dropdown-item>
+          <el-dropdown-item>选择2</el-dropdown-item>
+          <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+          <el-dropdown-item disabled>无法点击</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -43,11 +42,20 @@
       Breadcrumb
     },
     methods: {
+      handleCommand(command) {
+        switch (command) {
+          case 'logout':
+            this.logout();
+            break;
+          default:
+            break;
+        }
+      },
       logout() {
         this.$store.commit('saveUserInfo', null);
         localStorage.setItem('userInfo', null);
         this.$router.push('/login');
-      },
+      }
     }
   }
 </script>
@@ -68,7 +76,6 @@
     .handle{
       .item{
         margin: 0 10px;
-        cursor: pointer;
         .iconfont{
           width: 24px;
           height: 24px;

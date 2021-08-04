@@ -4,12 +4,84 @@
     .contentLeft{
       width: 0;
       height: 100%;
-      background-color: @Bgc-white;
-      border-radius: @Border-radius-5;
       flex: 1 0 auto;
+      .statistic{
+        height: 100px;
+        .item{
+          width: 404px;
+          height: 100%;
+          padding: 0 20px;
+          background-color: @Bgc-white;
+          border-radius: @Border-radius-5;
+          overflow: hidden;
+          .icon{
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+            border-radius: @Border-round;
+            background-color: #7678ED;
+            flex: 0 0 auto;
+            .iconfont{
+              font-size: 24px;
+              color: #FFFFFF;
+            }
+          }
+          .content{
+            width: 0;
+            flex: 1 0 auto;
+            .value{
+              font-size: 30px;
+              color: #333333;
+              s{
+                padding-left: 13px;
+                font-size: 18px;
+              }
+              span{
+                padding-left: 10px;
+                font-size: 14px;
+                .iconfont{
+                  font-size: 20px;
+                }
+              }
+              .isFalling{
+                color: #1CA00B;
+              }
+              .isRising{
+                color: #F35B04;
+              }
+            }
+            .title{
+              padding-top: 16px;
+              font-size: 18px;
+              font-weight: bold;
+              color: @Text-title;
+            }
+          }
+          &:first-child .icon{ background-color: #F7B801; }
+          &:last-child .icon{ background-color: #F18701; }
+        }
+      }
+      .chart{
+        height: 427px;
+        margin-top: 20px;
+        .item{
+          width: 616px;
+          height: 100%;
+          background-color: @Bgc-white;
+          border-radius: @Border-radius-5;
+          .title{
+            padding: 20px 10px 0 20px;
+            .titleLeft{
+              font-size: 18px;
+              font-weight: bold;
+              color: @Text-title;
+            }
+          }
+        }
+      }
     }
     .contentRight{
-      width: 418px;
+      width: 428px;
       height: 100%;
       margin-left: 20px;
       background-color: @Bgc-white;
@@ -25,7 +97,8 @@
     .title{
       padding: 20px 0 30px;
       font-size: 18px;
-      color: @text-title;
+      font-weight: bold;
+      color: @Text-title;
     }
     .work{
       justify-content: space-between;
@@ -35,7 +108,7 @@
         border-bottom: 1px solid #C7C7C7;
         font-size: 16px;
         .subTitle{
-          color: #333333;
+          color: @Text-title;
         }
         .value{
           color: #7678ED;
@@ -53,7 +126,8 @@
       .title{
         padding: 20px 0 45px 20px;
         font-size: 18px;
-        color: @text-title;
+        font-weight: bold;
+        color: @Text-title;
       }
       .value{
         font-size: 20px;
@@ -62,7 +136,7 @@
       .subTitle{
         padding-top: 20px;
         font-size: 16px;
-        color: @text-title;
+        color: @Text-title;
       }
     }
     .memberView{
