@@ -1,7 +1,7 @@
 # 一款简单自用的后台系统模板
 ```
 项目有参考，学习PanJiaChen大佬开源的vue-element-admin
-<a href="https://panjiachen.github.io/vue-element-admin" target="_blank">点击跳转[vue-element-admin]</a>
+* <a href="https://panjiachen.github.io/vue-element-admin" target="_blank">点击跳转[vue-element-admin]</a>
    
 向所有行业标杆、先驱、大佬表达致敬
 ```
