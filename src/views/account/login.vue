@@ -17,6 +17,7 @@
           <button @click="login">登录</button>
           <button>注册</button>
         </section>
+        <div id="he-plugin-standard"></div>
       </section>
     </main>
   </div>
@@ -51,6 +52,23 @@
           }
         ], // 模拟轮播数据
       }
+    },
+    created() {
+      window.WIDGET = {
+        "CONFIG": {
+          "layout": "2",
+          "width": 230,
+          "height": 270,
+          "background": "1",
+          "dataColor": "FFFFFF",
+          "borderRadius": "5",
+          "key": "dea255ad8a1d449c8ae8192006a5f3c6"  //这里换成自己的key！
+        }
+      }
+      let script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0';
+      document.getElementsByTagName('head')[0].appendChild(script);
     },
     methods: {
       onSubmit(){},
