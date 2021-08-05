@@ -16,7 +16,7 @@ Vue.use(ElementUI);
 
 // 引入swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-import 'swiper/css/swiper.css';
+import 'swiper/dist/css/swiper.css';
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */);
 
 // 引入全局方法

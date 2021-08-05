@@ -1,6 +1,6 @@
 <template>
   <div class="loginPage flex-between-center">
-    <main class="loginBox flex">
+    <!-- <main class="loginBox flex">
       <section class="swiperBox">
         <swiper class="swiper" ref="mySwiper" :options="bannerOptions">
             <swiper-slide v-for="(item, index) in bannerData" :key="index">
@@ -19,7 +19,20 @@
         </section>
         <div id="he-plugin-standard"></div>
       </section>
-    </main>
+    </main> -->
+    <section class="loginLeft flex-col flex-between">
+      <div class="plugin flex-between-center">
+        <div class="time"></div>
+        <div id="he-plugin-standard"></div>
+      </div>
+      <swiper class="swiper adBanner" :options="bannerOptions">
+        <swiper-slide class="bannerItem" v-for="(item, index) in bannerData" :key="index">
+          <el-image class="bannerItem" :alt="item.name" :src="item.url" lazy fit="cover"></el-image>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </section>
+    <section class="loginRight"></section>
   </div>
 </template>
 
@@ -31,38 +44,43 @@
         formData: {
           name: '',
           password: '',
-        }, // 提交数据
+        },
         bannerOptions: {
+          spaceBetween: 30,
+          grabCursor: true,
           pagination: {
-            el: ".swiper-pagination"
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true
+          },
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: false
           }
-        }, // 轮播设置
+        },
         bannerData: [
           {
             url: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
             name: '轮播一'
           },
           {
-            url: 'https://tenfei05.cfp.cn/creative/vcg/veer/800water/veer-302244659.jpg',
-            name: '轮播二'
-          },
-          {
             url: require('@/assets/images/common/background.png'),
             name: '轮播三'
           }
-        ], // 模拟轮播数据
+        ],
       }
     },
     created() {
       window.WIDGET = {
         "CONFIG": {
-          "layout": "2",
-          "width": 230,
-          "height": 270,
+          "layout": "1",
+          "width": "300",
+          "height": "160",
           "background": "1",
           "dataColor": "FFFFFF",
           "borderRadius": "5",
-          "key": "dea255ad8a1d449c8ae8192006a5f3c6"  //这里换成自己的key！
+          "modules": "10",
+          "key": "21e836349ee84f179c3c057a8d2af995"  //这里换成自己的key！
         }
       }
       let script = document.createElement('script');
@@ -84,46 +102,3 @@
     },
   }
 </script>
-
-<style lang="less" scoped>
-  .loginPage{
-    height: 100%;
-    padding: 0 300px;
-    background-image: linear-gradient(to right, rgb(26, 53, 158), rgb(18, 80 ,205));
-    .loginBox{
-      width: 1200px;
-      height: 600px;
-      background-color: #FFFFFF;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      z-index: 10;
-      overflow: hidden;
-      .login{
-        width: 500px;
-        height: 100%;
-        padding: 24px;
-        .accountInput{
-          margin-bottom: 20px;
-        }
-      }
-      .swiperBox{
-        width: 700px;
-        height: 100%;
-        background-color: #1982c4;
-        .swiper{
-          height: 100%;
-          .bannerItem{
-            width: 100%;
-            height: 100%;
-          }
-        }
-      }
-    }
-  }
-</style>
