@@ -136,6 +136,10 @@ export default {
       ratioSelect: '日', // 占比图选项
     }
   },
+  mounted() {
+    let time = this.$Sa.getDateTime(1295259403000, 'YY:MM:DD-HH:MM:SS');
+    console.log(time)
+  },
   methods: {
     handleTrend(command) {
       switch (command) {

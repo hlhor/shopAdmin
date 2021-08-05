@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
 
 // 引入iconfont
 import "./assets/iconfont/iconfont.css";
@@ -18,6 +18,10 @@ Vue.use(ElementUI);
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */);
+
+// 引入全局方法
+import Sa from '@/utils/commonFun.js';
+Vue.prototype.$Sa = Sa;
 
 // 引入全局组件
 import Header from '@/components/Header';
@@ -38,7 +42,7 @@ Vue.prototype.log = function(val){
   return console.log(`${val.title ? val.title : '打印结果'}=====`, val.value)
 };
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,
