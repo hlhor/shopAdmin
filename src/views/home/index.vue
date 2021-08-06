@@ -137,7 +137,7 @@ export default {
     }
   },
   mounted() {
-    let time = this.$Sa.getDateTime(1295259403000, 'YY:MM:DD-HH:MM:SS');
+    let time = this.$Sa.getDateTime(1295259403000, 'YY-MM-DD hh:mm:ss');
     console.log(time)
   },
   methods: {

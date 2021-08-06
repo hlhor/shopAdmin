@@ -32,7 +32,9 @@
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </section>
-    <section class="loginRight"></section>
+    <section class="loginRight">
+      <button @click="login">登录</button>
+    </section>
   </div>
 </template>
 
