@@ -1,28 +1,12 @@
 <template>
   <div class="loginPage flex-between-center">
-    <!-- <main class="loginBox flex">
-      <section class="swiperBox">
-        <swiper class="swiper" ref="mySwiper" :options="bannerOptions">
-            <swiper-slide v-for="(item, index) in bannerData" :key="index">
-              <el-image class="bannerItem" :alt="item.name" :src="item.url" lazy fit="cover"></el-image>
-            </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
-        </swiper>
-      </section>
-      <section class="login">
-        <h1>电商管理后台系统</h1>
-        <el-input class="accountInput" placeholder="请输入账号" prefix-icon="el-icon-user" v-model="formData.name" clearable></el-input>
-        <el-input class="accountInput" placeholder="请输入密码" prefix-icon="el-icon-lock" v-model="formData.password" show-password clearable></el-input>
-        <section class="flex-end-center">
-          <button @click="login">登录</button>
-          <button>注册</button>
-        </section>
-        <div id="he-plugin-standard"></div>
-      </section>
-    </main> -->
     <section class="loginLeft flex-col flex-between">
       <div class="plugin flex-between-center">
-        <div class="time"></div>
+        <div class="time flex-around flex-col">
+          <h3 class="date">{{ strTime }}</h3>
+          <h5 class="greet">{{ greet }}</h5>
+          <h5 class="tips">{{ tips }}</h5>
+        </div>
         <div id="he-plugin-standard"></div>
       </div>
       <swiper class="swiper adBanner" :options="bannerOptions">
@@ -32,8 +16,14 @@
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </section>
-    <section class="loginRight">
-      <button @click="login">登录</button>
+    <section class="loginRight flex-col flex-flex-center">
+      <h1 class="system">ShopAdmin后台系统</h1>
+      <el-input class="label" placeholder="请输入帐号/手机号" v-model="formData.name" prefix-icon="iconfont icon-account"></el-input>
+      <el-input class="label" placeholder="请输入密码" v-model="formData.password" type="password" prefix-icon="iconfont icon-password"></el-input>
+      <div class="handle flex-center">
+        <el-button @click="login">登录</el-button>
+        <el-button>注册</el-button>
+      </div>
     </section>
   </div>
 </template>
@@ -70,6 +60,9 @@
             name: '轮播三'
           }
         ],
+        greet: '晚上好',
+        strTime: '2021年8月7日 0:48:21',
+        tips: '工作虽然很忙，但也要注意休息哦~'
       }
     },
     created() {
