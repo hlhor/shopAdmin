@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="chart flex-between-center">
-          <div class="item">
+          <div class="item flex-col">
             <div class="title cursor flex-between-center">
               <span class="titleLeft">销量走势图</span>
               <el-dropdown trigger="click" @command="handleTrend">
@@ -33,8 +33,9 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
+            <div id="trendCharts"></div>
           </div>
-          <div class="item">
+          <div class="item flex-col">
             <div class="title cursor flex-between-center">
               <span class="titleLeft">销量占比</span>
               <el-dropdown trigger="click" @command="handleRatio">
@@ -48,6 +49,7 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
+            <div id="ratioCharts"></div>
           </div>
         </div>
       </div>
@@ -137,10 +139,97 @@ export default {
     }
   },
   mounted() {
-    let time = this.$Sa.getDateTime(1295259403000, 'YY-MM-DD hh:mm:ss');
-    console.log(time)
+    this.drawEcharts();
   },
   methods: {
+    drawEcharts(){
+      let trendCharts = this.$echarts.init(document.getElementById('trendCharts'));
+      let ratioCharts = this.$echarts.init(document.getElementById('ratioCharts'));
+      trendCharts.setOption({
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '邮件营销',
+            type: 'line',
+            stack: '总量',
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '联盟广告',
+            type: 'line',
+            stack: '总量',
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: '视频广告',
+            type: 'line',
+            stack: '总量',
+            data: [150, 232, 201, 154, 190, 330, 410]
+          },
+          {
+            name: '直接访问',
+            type: 'line',
+            stack: '总量',
+            data: [320, 332, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '搜索引擎',
+            type: 'line',
+            stack: '总量',
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
+          }
+        ]
+      });
+      ratioCharts.setOption({
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: 0,
+          left: 'center',
+        },
+        series: [
+          {
+            name: '访问来源',
+            type: 'pie',
+            radius: '50%',
+            data: [
+              {value: 1048, name: '搜索引擎'},
+              {value: 735, name: '直接访问'},
+              {value: 580, name: '邮件营销'},
+              {value: 484, name: '联盟广告'},
+              {value: 300, name: '视频广告'}
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }
+        ]
+      })
+    },
     handleTrend(command) {
       switch (command) {
         case 'day':
@@ -171,6 +260,6 @@ export default {
           break;
       }
     }
-  },
+  }
 }
 </script>

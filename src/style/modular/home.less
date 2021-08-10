@@ -70,12 +70,16 @@
           background-color: @Bgc-white;
           border-radius: @Border-radius-5;
           .title{
-            padding: 20px 10px 0 20px;
+            padding: 20px 10px 20px 20px;
+            flex: 0 0 auto;
             .titleLeft{
               font-size: 18px;
               font-weight: bold;
               color: @Text-title;
             }
+          }
+          #trendCharts, #ratioCharts{
+            flex: 1 0 auto;
           }
         }
       }

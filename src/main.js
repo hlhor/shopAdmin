@@ -19,11 +19,16 @@ import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css';
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */);
 
+// 引入Echarts
+// import echarts from 'echarts';
+import * as echarts from 'echarts';
+Vue.prototype.$echarts = echarts;
+
 // 引入全局方法
 import Sa from '@/utils/commonFun.js';
 Vue.prototype.$Sa = Sa;
 
-// 引入全局组件
+// 引入全局Layout组件
 import Header from '@/components/Header';
 import Aside from '@/components/Aside';
 import Main from '@/components/Main';
