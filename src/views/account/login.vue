@@ -1,30 +1,32 @@
 <template>
-  <div class="loginPage flex-between-center">
-    <section class="loginLeft flex-col flex-between">
-      <div class="plugin flex-between-center">
-        <div class="time flex-around flex-col">
-          <h3 class="date">{{ strTime }}</h3>
-          <h5 class="greet">{{ greet }}</h5>
-          <h5 class="tips">{{ tips }}</h5>
+  <div class="loginPage">
+    <main class="login flex-between-center">
+      <section class="loginLeft flex-col flex-between">
+        <div class="plugin flex-between-center">
+          <div class="time flex-around flex-col">
+            <h3 class="date">{{ strTime }}</h3>
+            <h5 class="greet">{{ greet }}</h5>
+            <h5 class="tips">{{ tips }}</h5>
+          </div>
+          <div id="he-plugin-standard"></div>
         </div>
-        <div id="he-plugin-standard"></div>
-      </div>
-      <swiper class="swiper adBanner" :options="bannerOptions">
-        <swiper-slide class="bannerItem" v-for="(item, index) in bannerData" :key="index">
-          <el-image class="bannerItem" :alt="item.name" :src="item.url" lazy fit="cover"></el-image>
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
-    </section>
-    <section class="loginRight flex-col flex-flex-center">
-      <h1 class="system">ShopAdmin后台系统</h1>
-      <el-input class="label" placeholder="请输入帐号/手机号" v-model="formData.name" prefix-icon="iconfont icon-account"></el-input>
-      <el-input class="label" placeholder="请输入密码" v-model="formData.password" type="password" prefix-icon="iconfont icon-password"></el-input>
-      <div class="handle flex-center">
-        <el-button @click="login">登录</el-button>
-        <el-button>注册</el-button>
-      </div>
-    </section>
+        <swiper class="swiper adBanner" :options="bannerOptions">
+          <swiper-slide class="bannerItem" v-for="(item, index) in bannerData" :key="index">
+            <el-image class="bannerItem" :alt="item.name" :src="item.url" lazy fit="cover"></el-image>
+          </swiper-slide>
+          <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+      </section>
+      <section class="loginRight flex-col flex-flex-center">
+        <h1 class="system">ShopAdmin后台系统</h1>
+        <el-input class="label" placeholder="请输入帐号/手机号" v-model="formData.name" prefix-icon="iconfont icon-account"></el-input>
+        <el-input class="label" placeholder="请输入密码" v-model="formData.password" type="password" prefix-icon="iconfont icon-password"></el-input>
+        <div class="handle flex-center">
+          <el-button @click="login">登录</el-button>
+          <el-button>注册</el-button>
+        </div>
+      </section>
+    </main>
   </div>
 </template>
 
