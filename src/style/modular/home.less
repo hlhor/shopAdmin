@@ -91,6 +91,54 @@
       background-color: @Bgc-white;
       border-radius: @Border-radius-5;
       flex: 0 0 auto;
+      .title{
+        padding: 20px 10px 20px 20px;
+        flex: 0 0 auto;
+        .titleLeft{
+          font-size: 18px;
+          font-weight: bold;
+          color: @Text-title;
+        }
+      }
+      .rankList{
+        flex: 1 0 auto;
+        .item{
+          margin-bottom: 20px;
+          padding: 0 20px;
+          &:last-child{
+            margin-bottom: 0;
+          }
+          .rank{
+            width: 32px;
+            height: 32px;
+            flex: 0 0 auto;
+            p{
+              font-size: 16px;
+              font-weight: bold;
+              color: #798AE1;
+            }
+          }
+          .info{
+            padding-left: 10px;
+            flex: 1 0 auto;
+            .goods{
+              padding-bottom: 10px;
+              color: @Text-title;
+              .name{
+                max-width: 180px;
+                font-size: 16px;
+              }
+              .sales{
+                font-size: 14px;
+              }
+            }
+            .progress{
+              height: 14px;
+              background-color: #798AE1;
+            }
+          }
+        }
+      }
     }
   }
   .contentCenter{

@@ -20,7 +20,6 @@ import 'swiper/dist/css/swiper.css';
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */);
 
 // 引入Echarts
-// import echarts from 'echarts';
 import * as echarts from 'echarts';
 Vue.prototype.$echarts = echarts;
 
