@@ -167,14 +167,14 @@
         ratioSelect: '日', // 占比图选项
         rankSelect: '日', // 排行榜选项
         rankList: [
-          {name: '牙刷', sales: 10257, unit: '支'},
-          {name: '卫龙大辣条', sales: 8423, unit: '包'},
-          {name: '方便面', sales: 6048, unit: '桶'},
-          {name: '可口可乐', sales: 5710, unit: '瓶'},
-          {name: '百事可乐', sales: 4444, unit: '瓶'},
-          {name: '火腿肠', sales: 4068, unit: '根'},
-          {name: '纸巾', sales: 1048, unit: '包'},
-          {name: '打火机', sales: 592, unit: '个'}
+          {name: '牙刷', sales: 10000, unit: '支'},
+          {name: '卫龙大辣条', sales: 800, unit: '包'},
+          {name: '方便面', sales: 5000, unit: '桶'},
+          {name: '可口可乐', sales: 5000, unit: '瓶'},
+          {name: '百事可乐', sales: 4000, unit: '瓶'},
+          {name: '火腿肠', sales: 4000, unit: '根'},
+          {name: '纸巾', sales: 1000, unit: '包'},
+          {name: '打火机', sales: 500, unit: '个'}
         ]
       }
     },
@@ -318,12 +318,13 @@
             break;
         }
       },
+      // 排行榜进度条计算
       progressWidth() {
         let rankList = this.rankList;
-        rankList[0]['width'] = '340px';
-        // rankList.forEach(item => {
-          
-        // })
+        let unit = rankList[0].sales / 100;
+        rankList.forEach((item, index) => {
+          item.width = (rankList[index].sales / (rankList[0].sales / unit)) * 3.4 + 'px';
+        })
       }
     }
   }
